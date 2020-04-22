@@ -36,7 +36,7 @@ const Timer = () => {
       <button className="button" onClick={changeType}>
           Contador
       </button>
-      <input type="text" placeholder="Ingresa Segundos" autoComplete="off"/>
+      <input type="number" placeholder="Ingresa Segundos" autoComplete="off"/>
     </div>
   );
 };
@@ -86,8 +86,8 @@ Comencemos a pasarle los valores iniciales del state a nuestro HTML. En lugar de
         {segundos}s
       </div>
       <div className="row">
-        <button className={`button button-primary button-primary-${isActive ? 'active' : 'inactive'}`}>
-          {isActive ? 'Pausa' : 'Inicio'}
+        <button className={`button button-primary button-primary-${activo ? 'active' : 'inactive'}`}>
+          {activo ? 'Pausa' : 'Inicio'}
         </button>
         <button className="button">
           Reset
@@ -96,7 +96,7 @@ Comencemos a pasarle los valores iniciales del state a nuestro HTML. En lugar de
       <button className="button">
           {tipo}
       </button>
-      {tipo === 'Cuenta Regresiva' && <input type="text" placeholder="Ingresa Segundos" autoComplete="off"/>}
+      {tipo === 'Cuenta Regresiva' && <input type="number" placeholder="Ingresa Segundos" autoComplete="off"/>}
     </div>
   );
 ...
@@ -139,8 +139,8 @@ Ahora agregamos nuestros metodos a nuestro componente.
         {segundos}s
       </div>
       <div className="row">
-        <button className={`button button-primary button-primary-${isActive ? 'active' : 'inactive'}`} onClick={toggle}>
-          {isActive ? 'Pausa' : 'Inicio'}
+        <button className={`button button-primary button-primary-${activo ? 'active' : 'inactive'}`} onClick={toggle}>
+          {activo ? 'Pausa' : 'Inicio'}
         </button>
         <button className="button" onClick={reset}>
           Reset
@@ -149,7 +149,7 @@ Ahora agregamos nuestros metodos a nuestro componente.
       <button className="button" onClick={cambioTipo}>
           {tipo}
       </button>
-      {tipo === 'Cuenta Regresiva' && <input type="text" placeholder="Ingresa Segundos" autoComplete="off"/>}
+      {tipo === 'Cuenta Regresiva' && <input type="number" placeholder="Ingresa Segundos" autoComplete="off"/>}
     </div>
   );
 ...
@@ -198,7 +198,7 @@ Despues agregamos nuestra `ref` en el input. Y agregamos la funcionalidad para c
 ```javascript
 ...
 
-function addSeconds() {
+function agregaSegundos() {
     // `current` apunta al elemento de entrada de texto montado
     let ref = myRef.current.value
     setSegundos(ref)
@@ -207,7 +207,7 @@ function addSeconds() {
 //...
 ...
 
-<input type="text" ref={myRef} onChange={addSeconds} placeholder="Ingresa Segundos" autoComplete="off"/>
+<input type="number" ref={myRef} onChange={agregaSegundos} placeholder="Ingresa Segundos" autoComplete="off"/>
 
 ...
 ```
