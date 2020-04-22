@@ -8,11 +8,11 @@ Tendremos un solo componente en donde manejaremos los estados y nuestra UI. Ya t
 
 Comencemos:
 
-## Paso 1
+### Paso 1
 
 Ejecutamos `npm install` en la consola para instalar las dependencias, una vez instalamos inicializamos el proyecto con `npm start`. Se iniciara en `http://localhost:3000/`.
 
-## Paso 2
+### Paso 2
 
 Comenzamos a crear nuestro HTML que mostrara nuestro componente. Usamos las mismas clases, para que carguen los estilos que tendremos en `Timer.css`. Tambien pueden hacer los estilos ustedes si quieren.
 
@@ -46,7 +46,7 @@ export default Timer;
 
 Ahora que tenemos nuestra estructura casi lista podemos comenzar a agregar el Hook `useState`.
 
-## Paso 3
+### Paso 3
 
 Con la version 16.8 de React, los componentes funcionales tienen la habilidad de manejar ´state´ y ´life cycle methods´ que antes podiamos lograrlo solo con componentes de Clase. Comenzamos con ´useState´. Lo importamos en nuestro componente.
 
@@ -73,7 +73,7 @@ const Timer = () => {
 
 Como vemos, a cada state le pasamos nuestro valor inicial como parametro a nuestra funcion useState. Por convencion se usa al comienzo de nuestro metodo para mutar el estado la palabra `set` seguido del nombre de nuestro estado. En este caso, comenzamos nuestro contador en 0, y nuestro Timer esta en pausa por eso `activo` es false. Y por default nuestra app se iniciara como `Contador`.
 
-## Paso 4
+### Paso 4
 
 Comencemos a pasarle los valores iniciales del state a nuestro HTML. En lugar de pasar a mano segundos. Pasamos nuestro state `segundos`, en el boton Inicio, usamos `activo` para cambiar entre Inicio y Pausa, tambien usaremos ese state para cambiar las clases. Por ultimo en el boton `Contador` y en nuestro imput usamos el state `tipo` para mostrar el input si mi `tipo` es 'Cuenta Regresiva'
 
@@ -102,7 +102,7 @@ Comencemos a pasarle los valores iniciales del state a nuestro HTML. En lugar de
 ...
 ```
 
-## Paso 5
+### Paso 5
 
 Agregamos la funcionalidad de Inicio, Pausa y Reseteo del Timer. Primero agregamos una funcion para cambiar nuestro estado `active`. La llamamos 'toggle'. Y cuando esta sea llamada cambiara el state activo.
 
@@ -155,7 +155,7 @@ Ahora agregamos nuestros metodos a nuestro componente.
 ...
 ```
 
-## Paso 5
+### Paso 6
 
 Iniciamos nuestro Timer con el Hook `useEffect`. Como vimos anteriormente, useEffect nos permite llevar a cabo efectos secundarios en componentes funcionales. Nos ayuda a simular los ciclos de vida en los componente de clase. Si bien no son exactamente lo mismo, se comporta similar. Este Hook equivale a componentDidMount, componentDidUpdate y componentWillUnmount combinados.
 Lo importamos como hicimos con useState. `useEffect` recibe un callback como primer parametro. El segundo parametro que recibe es un array con sus `dependencias`, es decir que cuando esos parametros no cambien, nuestro Hook no volvera a ejecutarse. 
@@ -184,7 +184,7 @@ Si el valor `activo` es falso, entonces estamos limpiando el intervalo . Tambié
 
 Vemos que nuestras `dependencias` son nuestros estados, es decir que cada vez que haya algun cambio de state, useEffect se ejecutara.
 
-## Paso 6
+### Paso 7
 
 Para terminar agregamos la funcionalidad de Cuenta Regresiva. Usaremos el Hook `useRef` para obtener el valor que ingresemos en el input. Este devuelve un objecto `ref` mutable. Este objeto devuelto se mantendrá persistente durante la vida completa del componente. Usamos las referencias como un modo para acceder al DOM. Primero inicializamos nuestra ref
 
